@@ -1,0 +1,19 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Quote App</title></head>
+<body>
+  <h1>Quote of the Moment</h1>
+  <p id="quote"></p>
+  <button onclick="getQuote()">Get New Quote</button>
+
+  <script>
+    async function getQuote() {
+      const response = await fetch('https://your-backend-url.com/quote');
+      const data = await response.json();
+      document.getElementById('quote').textContent = data.quote;
+    }
+    getQuote(); // Load one on page load
+  </script>
+</body>
+</html>
